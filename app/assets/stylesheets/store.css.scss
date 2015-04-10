@@ -3,11 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .store {
+
 	h1 {
 		margin: 0;
 		padding-bottom: 0.5em;
 		font: 150% sans-serif;
-		color: #226;
+		color: #000;
 		border-bottom: 3px dotted #77d;
 	}
 
@@ -23,6 +24,7 @@
 			margin-bottom: 5px;
 			position: absolute;
 		}
+
 		h3 {
 			font-size: 120%;
 			font-family: sans-serif;
@@ -31,11 +33,18 @@
 			margin-bottom: 2px;
 			color: #227;
 		}
+
 		p, div.price_line {
 			margin-left: 100px;
 			margin-top: 0.5em;
 			margin-bottom: 0.8em;
+
+				form, div {
+					display: inline;
+				}
+
 		}
+
 		.price {
 				color: #44a;
 				font-weight: bold;
