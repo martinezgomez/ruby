@@ -36,7 +36,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+        format.html { redirect_to @cart, notice: 'Carro creado correctamente.' }
         format.json { render action: 'show', status: :created, location: @cart }
       else
         format.html { render action: 'new' }
@@ -50,7 +50,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to @cart, notice: 'El carro a sido actualizado.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -65,8 +65,7 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to store_url,
-        notice: 'Your cart is currently empty' }
+      format.html { redirect_to store_url, notice: 'Su carro esta vacio' }
       format.json { head :no_content }
     end
   end
@@ -85,6 +84,6 @@ class CartsController < ApplicationController
     end
     def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to store_url, notice: 'Invalid cart'
+      redirect_to store_url, notice: 'Carro invalido'
     end
 end

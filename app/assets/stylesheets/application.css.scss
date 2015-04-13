@@ -1,14 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will
- * include all the files listed below.
- * 
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets,
- * vendor/assets/stylesheets, or vendor/assets/stylesheets of plugins, if any,
- * can be referenced here using a relative path.
- * 
- * You're free to add application-wide styles to this file and they'll appear
- * at the top of the compiled file, but it's generally better to create a new
- * file per style scope.
+/* file per style scope.
  * 
  *= require_self
  *= require_tree .
@@ -19,7 +9,7 @@
   padding: 10px;
   border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
-  color: #000;
+  color: #282;
   text-align: center;
 
   img {
@@ -37,7 +27,7 @@
 }
 
 #columns {
-  background: #444;
+  background: #141;
 
   #main {
     margin-left: 17em;
@@ -49,14 +39,32 @@
     float: left;
     padding: 1em 2em;
     width: 13em;
-    background: #444;
-	
+    background: #141;
+
+    form, div {
+      display: inline;
+    }  
+ 
+    input {
+      font-size: small;
+    }
+
+    #cart {
+      font-size: smaller;
+      color:     white;
+
+      table {
+        border-top:    1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+    }
+
     ul {
       padding: 0;
 
       li {
         list-style: none;
-        font-size: 5em;
 
         a {
           color: #bfb;

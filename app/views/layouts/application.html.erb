@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<title>Pragprog Books Online Store</title>
-		<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-		<%= csrf_meta_tags %>
-	</head>
+  <head>
+    <title>Pragprog Books Online Store</title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-	<body class="<%= controller.controller_name %>">
-		<div id="banner">
-			<%= image_tag("logo.png") %>
-			<%= @page_title || "Pragmatic Bookshelf" %>
-		</div>
-		<div id="columns">
-			<div id="side">
-				<ul>
-					<li><a href="http://www....">Inicio</a></li>
-					<li><a href="http://www..../faq">Preguntas</a></li>
-					<li><a href="http://www..../news">Noticias</a></li>
-					<li><a href="http://www..../contact">Contactos</a></li>
-				</ul>
-			</div>
-			<div id="main">
-				<%= yield %>
-			</div>
-		</div>
-	</body>
+  <body class="<%= controller.controller_name %>">
+    <div id="banner">
+      <%= image_tag("logo.png") %>
+      <%= @page_title || "Libreria pragmatica" %>
+    </div>
+    <div id="columns">
+      <div id="side">
+        <div id="cart">
+          <% if @cart.line_items.empty? %>
+          <% end %>
+          
+          <%= render (@cart) %>
+        </div>
+
+            <ul>
+              <li><a href="http://www....">Inicio</a></li>
+              <li><a href="http://www..../faq">Preguntas</a></li>
+              <li><a href="http://www..../news">Noticias</a></li>
+              <li><a href="http://www..../contact">Contacto</a></li>
+            </ul>
+          </div>
+        <div id="main">
+          <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>
