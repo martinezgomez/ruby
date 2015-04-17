@@ -1,4 +1,4 @@
-<h1>Listing carts</h1>
+<h1>Lstado de carros</h1>
 
 <table>
   <thead>
@@ -14,7 +14,7 @@
       <tr>
         <td><%= link_to 'Show', cart %></td>
         <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Cart', new_cart_path %>
+<%= link_to 'New buy', new_cart_path %>

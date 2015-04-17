@@ -7,6 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 class CartsController < ApplicationController
+  skip_before_action :authorize, only: [:create, :update, :destroy]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
   # GET /carts
@@ -36,7 +37,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Carro creado correctamente.' }
+        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
         format.json { render action: 'show', status: :created, location: @cart }
       else
         format.html { render action: 'new' }
@@ -50,7 +51,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'El carro a sido actualizado.' }
+        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -65,7 +66,7 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to store_url, notice: 'Su carro esta vacio' }
+      format.html { redirect_to store_url }
       format.json { head :no_content }
     end
   end
@@ -84,6 +85,6 @@ class CartsController < ApplicationController
     end
     def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to store_url, notice: 'Carro invalido'
+      redirect_to store_url, notice: 'Invalid cart'
     end
 end
